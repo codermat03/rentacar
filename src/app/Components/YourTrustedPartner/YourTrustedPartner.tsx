@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image"; // Importing the Image component from Next.js
 import { FaArrowRight } from "react-icons/fa";
 
 const TrustedPartnerSection = () => {
@@ -10,16 +11,20 @@ const TrustedPartnerSection = () => {
           {/* Image Section */}
           <div className="relative flex justify-center items-start">
             {/* Top Image */}
-            <img
+            <Image
               src="https://idsb.tmgrup.com.tr/ly/uploads/images/2021/05/30/118050.jpg"
               alt="Car rental service 1"
               className="w-full sm:w-3/4 lg:w-2/3 rounded-lg shadow-lg"
+              width={800} // You can adjust the width
+              height={600} // You can adjust the height
             />
             {/* Bottom Image */}
-            <img
+            <Image
               src="https://res.cloudinary.com/unix-center/image/upload/c_lfill,dpr_3.0,f_auto,fl_progressive,g_center,h_409,q_auto:good,w_623/v1714550815/lnwdyfmtdijlo4btlqo2.webp"
               alt="Car rental service 2"
               className="absolute w-1/2 sm:w-1/3 lg:w-1/3 rounded-lg shadow-lg bottom-[-20px] right-[-20px] sm:bottom-[-20px] sm:right-[-40px] border-4 border-white"
+              width={400} // You can adjust the width
+              height={300} // You can adjust the height
             />
           </div>
 

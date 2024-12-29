@@ -1,5 +1,6 @@
 "use client";
 import { FaArrowRight } from "react-icons/fa";
+import Image from "next/image"; // Importing Next.js Image component
 
 const cars = [
   {
@@ -56,7 +57,7 @@ const cars = [
 
 const AllCars = () => {
   return (
-    <div className=" text-black max-w-7xl mx-auto px-4 py-8">
+    <div className="text-black max-w-7xl mx-auto px-4 py-8">
       <h2 className="text-lg text-red-500 font-bold mb-4">Our Fleets</h2>
       <h1 className="text-2xl md:text-5xl font-bold mb-8">
         Explore our perfect and <br /> extensive fleet
@@ -65,9 +66,11 @@ const AllCars = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {cars.map((car) => (
           <div key={car.id} className="bg-white border rounded-lg shadow-md">
-            <img
+            <Image
               src={car.image}
               alt={car.name}
+              width={600} // Provide width for image optimization
+              height={384} // Provide height for image optimization
               className="w-full h-64 object-cover rounded-t-lg"
             />
             <div className="p-4">

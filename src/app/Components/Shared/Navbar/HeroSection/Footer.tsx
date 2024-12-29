@@ -1,8 +1,9 @@
 import React from "react";
+import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className=" text-white py-10 relative max-w-7xl mx-auto px-6">
+    <footer className="text-white py-10 relative max-w-7xl mx-auto px-6">
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8">
         {/* Logo and Description */}
         <div>
@@ -18,24 +19,24 @@ const Footer = () => {
           <h3 className="font-semibold text-lg">Legal Policy</h3>
           <ul className="mt-4 space-y-2 text-sm">
             <li>
-              <a href="#" className="hover:underline">
+              <Link href="#" className="hover:underline">
                 Terms & Conditions
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:underline">
+              <Link href="#" className="hover:underline">
                 Privacy Policy
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:underline">
+              <Link href="#" className="hover:underline">
                 Legal Notice
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:underline">
+              <Link href="#" className="hover:underline">
                 Accessibility
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -45,24 +46,24 @@ const Footer = () => {
           <h3 className="font-semibold text-lg">Quick Links</h3>
           <ul className="mt-4 space-y-2 text-sm">
             <li>
-              <a href="#" className="hover:underline">
+              <Link href="/" className="hover:underline">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:underline">
+              <Link href="/about" className="hover:underline">
                 About Us
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:underline">
+              <Link href="/car-types" className="hover:underline">
                 Car Types
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:underline">
+              <Link href="/services" className="hover:underline">
                 Services
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -99,14 +100,14 @@ const Footer = () => {
             { icon: "fab fa-twitter", label: "Twitter" },
             { icon: "fab fa-linkedin", label: "LinkedIn" },
           ].map((social, idx) => (
-            <a
+            <Link
               key={idx}
               href="#"
-              aria-label={social.label}
               className="bg-gray-700 p-2 rounded-full hover:bg-orange-500 transition"
+              aria-label={social.label}
             >
               <i className={`${social.icon} text-white`}></i>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

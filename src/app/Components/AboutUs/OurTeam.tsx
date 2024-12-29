@@ -1,10 +1,12 @@
 import React from "react";
+import Image from "next/image";
 import {
   FaFacebookF,
   FaTwitter,
   FaInstagram,
   FaLinkedinIn,
 } from "react-icons/fa";
+import Link from "next/link";
 
 const OurTeam = () => {
   // Array of team members
@@ -74,18 +76,20 @@ const OurTeam = () => {
               key={index}
               className="relative group overflow-hidden rounded-lg"
             >
-              {/* Image */}
-              <img
+              {/* Image using Next.js Image component */}
+              <Image
                 src={member.image}
                 alt={member.name}
-                className="h-[300px] w-full object-cover rounded-lg"
+                width={300} // Adjust as per your design
+                height={500} // Adjust as per your design
+                className="object-cover rounded-lg h-[300px]"
               />
 
               {/* Social Media Icons */}
               <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="flex space-x-4">
                   {member.social.map((social, idx) => (
-                    <a
+                    <Link
                       key={idx}
                       href={social.link}
                       target="_blank"
@@ -93,7 +97,7 @@ const OurTeam = () => {
                       className="text-white text-2xl hover:text-orange-400 transition-colors"
                     >
                       {social.icon}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>

@@ -4,6 +4,7 @@ import { IoLocationSharp } from "react-icons/io5";
 import { MdHealthAndSafety } from "react-icons/md";
 
 import React from "react";
+import Image from "next/image";
 
 const OurQuality = () => {
   return (
@@ -46,9 +47,11 @@ const OurQuality = () => {
 
         {/* Center Image */}
         <div className="flex justify-center">
-          <img
+          <Image
             src="https://askaricars.com/wp-content/uploads/2023/11/Askari-rent-a-car-service-1024x788.jpg"
             alt="Askari Rent a Car"
+            width={1024}
+            height={788}
             className="rounded-lg shadow-lg"
           />
         </div>

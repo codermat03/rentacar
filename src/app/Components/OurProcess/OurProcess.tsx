@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { FaChevronDown } from "react-icons/fa";
+import Image from "next/image"; // Import Next.js Image component
 
 const OurProcess = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -85,10 +86,13 @@ const OurProcess = () => {
           {/* Image Section */}
           <div className="relative text-center">
             <div className="relative">
-              <img
+              {/* Replacing img tag with Next.js Image component */}
+              <Image
                 src="https://media.istockphoto.com/id/1475470414/vector/car-rental-design-concept.jpg?s=612x612&w=0&k=20&c=vtdY3Y2pU2a1PsDu-SczgzlcUjPM-JwypfWyoqNwBZE="
                 alt="Car Rental Illustration"
                 className="rounded-[300px] border-[20px] border-white shadow-2xl"
+                width={600} // Add width and height attributes
+                height={600}
               />
               <div
                 className="absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-red-500 text-white p-4 rounded-lg shadow-md transition-transform hidden lg:block"
@@ -100,20 +104,26 @@ const OurProcess = () => {
                   5 m+ Trusted worldwide clients
                 </h3>
                 <div className="flex items-center mt-2 space-x-2 relative">
-                  <img
+                  <Image
                     src="https://i.postimg.cc/6qv5TDS6/1.jpg"
                     alt="User 1"
                     className="rounded-full w-14"
+                    width={56}
+                    height={56}
                   />
-                  <img
+                  <Image
                     src="https://i.postimg.cc/YSr98D48/7.jpg"
                     alt="User 2"
                     className="rounded-full w-14"
+                    width={56}
+                    height={56}
                   />
-                  <img
+                  <Image
                     src="https://i.postimg.cc/0ydjY1Nb/5.jpg"
                     alt="User 3"
                     className="rounded-full w-14"
+                    width={56}
+                    height={56}
                   />
                   <div className="flex gap-2 absolute right-5 bottom-2">
                     <h1 className="bg-white rounded-full w-3 h-3"></h1>

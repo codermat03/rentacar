@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -105,9 +106,11 @@ const TestimonialSlider = () => {
               <p className="text-gray-600 mb-6">{testimonial.comment}</p>
               {/* Photo, Name, and Designation */}
               <div className="flex items-center">
-                <img
+                <Image
                   src={testimonial.photo}
                   alt={testimonial.name}
+                  width={64} // Equivalent to 16x16 in sm size (small circle)
+                  height={64} // Maintain aspect ratio (same as width)
                   className="w-12 h-12 sm:w-16 sm:h-16 rounded-full border-2 border-gray-300"
                 />
                 <div className="ml-4">

@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
-import Link from "next/link";
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 import { MdMessage } from "react-icons/md";
 
-// Define the Service type
 interface Service {
   id: number;
   title: string;
@@ -13,14 +14,16 @@ interface Service {
   bgColor: string;
 }
 
-// Define the props type for the component
 interface SingleServiceProps {
-  params: {
-    id: string; // The dynamic route parameter will be a string
-  };
+  params: Promise<{
+    id: string;
+  }>;
 }
 
-const SingleService = ({ params }: SingleServiceProps) => {
+const SingleService: React.FC<SingleServiceProps> = ({
+  params: paramsPromise,
+}) => {
+  const [params, setParams] = useState<{ id: string } | null>(null);
   const [service, setService] = useState<Service | undefined>(undefined);
 
   const services: Service[] = [
@@ -95,10 +98,20 @@ const SingleService = ({ params }: SingleServiceProps) => {
   ];
 
   useEffect(() => {
-    // Find the service based on the dynamic id
-    const foundService = services.find((data) => data.id === Number(params.id));
-    setService(foundService);
-  }, [params.id]);
+    const fetchParams = async () => {
+      const resolvedParams = await paramsPromise; // Resolve params Promise
+      setParams(resolvedParams);
+    };
+    fetchParams();
+  }, [paramsPromise]);
+
+  useEffect(() => {
+    if (params) {
+      const serviceId = Number(params.id);
+      const foundService = services.find((service) => service.id === serviceId);
+      setService(foundService);
+    }
+  }, [params, services]);
 
   if (!service) {
     return (
@@ -118,9 +131,7 @@ const SingleService = ({ params }: SingleServiceProps) => {
               "url('https://wallpapercave.com/wp/wp12422886.jpg')",
           }}
         >
-          {/* Overlay */}
           <div className="absolute inset-0 bg-black bg-opacity-60 rounded-[30px]"></div>
-          {/* Content */}
           <div className="relative z-10 flex flex-col justify-center items-center h-full text-white">
             <h1 className="text-3xl md:text-4xl lg:text-5xl md:text-6xl font-bold mb-2">
               {service.title}
@@ -137,38 +148,33 @@ const SingleService = ({ params }: SingleServiceProps) => {
           </div>
         </section>
       </section>
+
       <section className="py-16 bg-gray-100">
         <div className="max-w-6xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row gap-6">
-          {/* Left Sidebar: Fixed */}
-          <aside className="w-full md:w-1/3 lg:w-[500px] md:sticky top-28 h-full  hidden md:block">
+          <aside className="w-full md:w-1/3 lg:w-[500px] md:sticky top-28 h-full hidden md:block">
             <div className="bg-yellow-50 p-8 rounded-lg shadow-xl">
               <h1 className="md:text-2xl lg:text-3xl font-bold text-black mb-6">
                 Our Services
               </h1>
-              <div className="flex flex-col space-y-4 text-black ">
-                <a href="/allservices/1">Rental With Driver</a>
-                <a href="/allservices/2">Business Car Rental</a>
-                <a href="/allservices/3">Airport Transfer</a>
-                <a href="/allservices/4">Chauffeur Services</a>
-                <a href="/allservices/5">Luxury Cars</a>
-                <a href="/allservices/6">SUV Rentals</a>
-                <a href="/allservices/7">Wedding Car Rental</a>
-                <a href="/allservices/8">Long-Term Leasing</a>
+              <div className="flex flex-col space-y-4 text-black">
+                {services.map((service) => (
+                  <Link key={service.id} href={`/allservices/${service.id}`}>
+                    {service.title}
+                  </Link>
+                ))}
               </div>
             </div>
 
             <div className="pt-20">
               <MdMessage className="text-7xl text-black" />
-
               <h1 className="text-5xl text-black font-bold">Need Help?</h1>
               <p className="text-black">
                 We strive to provide exceptional customer service and support.
-                Whether you have questions.
               </p>
               <div className="flex items-center gap-2">
-                <button className="mt-5 flex items-center justify-center font-bold bg-orange-700 p-3 px-4 text-xl rounded-3xl transition-all duration-300  group">
+                <button className="mt-5 flex items-center justify-center font-bold bg-orange-700 p-3 px-4 text-xl rounded-3xl transition-all duration-300 group">
                   Contact Us
-                  <div className=" text-white ml-2 flex items-center justify-center rounded-full transition-transform -rotate-[50deg] group-hover:rotate-[0deg] duration-300">
+                  <div className="text-white ml-2 flex items-center justify-center rounded-full transition-transform -rotate-[50deg] group-hover:rotate-[0deg] duration-300">
                     <span className="text-xl">
                       <FaArrowRight />
                     </span>
@@ -178,29 +184,28 @@ const SingleService = ({ params }: SingleServiceProps) => {
             </div>
           </aside>
 
-          {/* Main Content: Scrollable */}
           <div className="w-full md:w-2/3 lg:ml-8">
             <div className="md:grid grid-cols-2 gap-3 text-black">
               <div className="hidden md:block">
-                <h1 className=" text-4xl font-bold  mb-6">{service.title}</h1>
-                <p className="text-lg  leading-relaxed">
+                <h1 className="text-4xl font-bold mb-6">{service.title}</h1>
+                <p className="text-lg leading-relaxed">
                   Experience unparalleled convenience and style with our
                   exceptional service.
                 </p>
               </div>
-              {/* Top Section: Image */}
               <div className="bg-white rounded-lg shadow-xl overflow-hidden p-8">
                 <div className="flex justify-center items-center">
-                  <img
+                  <Image
                     src={service.image}
                     alt={service.title}
+                    width={192}
+                    height={192}
                     className="w-full md:w-48 h-48 rounded-full border-4 border-gray-200 shadow-lg"
                   />
                 </div>
               </div>
             </div>
 
-            {/* Bottom Section: Full Description */}
             <div className="mt-10 bg-white p-8 rounded-lg shadow-lg">
               <h2 className="text-2xl font-semibold text-gray-800 mb-4">
                 Description

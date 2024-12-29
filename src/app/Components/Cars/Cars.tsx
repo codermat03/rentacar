@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import Image from "next/image"; // Import Image component
 
 const cars = [
   {
@@ -87,10 +88,12 @@ const CarSlider = () => {
               key={car.id}
               className="flex-shrink-0 w-80 bg-white border rounded-lg shadow-md mx-2"
             >
-              <img
+              <Image
                 src={car.image}
                 alt={car.name}
-                className="w-[340px] h-[220px] rounded-t-lg"
+                width={340} // Width of the image
+                height={220} // Height of the image
+                className="rounded-t-lg"
               />
               <div className="p-4 group">
                 <span className="text-sm bg-gray-200 rounded-full px-3 py-1 inline-block mb-2">

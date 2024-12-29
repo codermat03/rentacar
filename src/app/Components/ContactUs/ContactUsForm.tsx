@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import {
   FaPhoneAlt,
   FaEnvelope,
@@ -37,30 +38,30 @@ const ContactUsForm = () => {
           </div>
           {/* Social Media Icons */}
           <div className="flex space-x-4 mt-6">
-            <a
+            <Link
               href="#"
               className="p-2 bg-white text-black rounded-full hover:bg-orange-500 hover:text-white transition"
             >
               <FaFacebookF />
-            </a>
-            <a
+            </Link>
+            <Link
               href="#"
               className="p-2 bg-white text-black rounded-full hover:bg-orange-500 hover:text-white transition"
             >
               <FaTwitter />
-            </a>
-            <a
+            </Link>
+            <Link
               href="#"
               className="p-2 bg-white text-black rounded-full hover:bg-orange-500 hover:text-white transition"
             >
               <FaLinkedinIn />
-            </a>
-            <a
+            </Link>
+            <Link
               href="#"
               className="p-2 bg-white text-black rounded-full hover:bg-orange-500 hover:text-white transition"
             >
               <FaInstagram />
-            </a>
+            </Link>
           </div>
           {/* Background Decoration */}
           <div className="absolute bottom-0 right-0 opacity-20">

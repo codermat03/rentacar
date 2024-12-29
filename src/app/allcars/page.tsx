@@ -1,6 +1,7 @@
 import React from "react";
 import CarsCover from "../Components/Cars/CarsPage/CarsCover";
 import { FaArrowRight } from "react-icons/fa";
+import Image from "next/image"; // Importing next/image for optimized images
 
 const AllCars = () => {
   const cars = [
@@ -55,7 +56,7 @@ const AllCars = () => {
       price: 248,
     },
     {
-      id: 1,
+      id: 6,
       type: "Coupe Car",
       name: "Eclipse Sedan",
       image:
@@ -65,6 +66,7 @@ const AllCars = () => {
       price: 139,
     },
   ];
+
   return (
     <div className="bg-white">
       <CarsCover></CarsCover>
@@ -72,10 +74,13 @@ const AllCars = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {cars.map((car) => (
             <div key={car.id} className="bg-white border rounded-lg shadow-md">
-              <img
+              <Image
                 src={car.image}
                 alt={car.name}
                 className="w-full h-64 object-cover rounded-t-lg"
+                width={500} // Add width for better optimization
+                height={400} // Add height for better optimization
+                layout="responsive" // Helps with responsive image rendering
               />
               <div className="p-4">
                 <span className="text-sm bg-gray-200 rounded-full px-3 py-1 inline-block mb-2">

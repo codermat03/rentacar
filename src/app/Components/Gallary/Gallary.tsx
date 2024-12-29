@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const Gallery = () => {
   const cars = [
@@ -29,9 +30,11 @@ const Gallery = () => {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
         {cars.map((car, index) => (
           <div key={index} className="relative">
-            <img
+            <Image
               src={car.imageUrl}
               alt={car.name}
+              width={500}
+              height={300}
               className="w-full h-[200px] sm:h-[300px] lg:h-[500px] md:rounded-[50px] rounded-[15px] object-cover"
             />
             <span className="absolute top-4 left-6 text-white md:text-lg font-bold bg-black bg-opacity-50 p-2 rounded">

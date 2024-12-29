@@ -1,8 +1,15 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 const Tab = () => {
   const [activeTab, setActiveTab] = useState("Our Vision");
+  const [isClient, setIsClient] = useState(false); // Flag to detect client-side
+
+  useEffect(() => {
+    // Ensure client-side rendering only
+    setIsClient(true);
+  }, []);
 
   const tabs = [
     {
@@ -42,11 +49,15 @@ const Tab = () => {
             </ul>
           </div>
           <div className="w-full md:w-1/2">
-            <img
-              src="https://t4.ftcdn.net/jpg/05/83/93/43/360_F_583934340_e5cCd7fHZDNyvhTyABV2XtsjbSPKAC9X.jpg"
-              alt="Our Vision"
-              className="rounded-lg shadow-md"
-            />
+            {isClient && (
+              <Image
+                src="https://t4.ftcdn.net/jpg/05/83/93/43/360_F_583934340_e5cCd7fHZDNyvhTyABV2XtsjbSPKAC9X.jpg"
+                alt="Our Vision"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-md"
+              />
+            )}
           </div>
         </div>
       ),
@@ -86,11 +97,15 @@ const Tab = () => {
             </ul>
           </div>
           <div className="w-full md:w-1/2">
-            <img
-              src="https://car-images.bauersecure.com/wp-images/3695/chevrolet-corvette-z06.jpg"
-              alt="Our Mission"
-              className="rounded-lg shadow-md"
-            />
+            {isClient && (
+              <Image
+                src="https://car-images.bauersecure.com/wp-images/3695/chevrolet-corvette-z06.jpg"
+                alt="Our Mission"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-md"
+              />
+            )}
           </div>
         </div>
       ),
@@ -130,11 +145,15 @@ const Tab = () => {
             </ul>
           </div>
           <div className="w-full md:w-1/2">
-            <img
-              src="https://news.dupontregistry.com/wp-content/uploads/2024/11/Hennessey-Venom-Main-1080x570.jpg"
-              alt="Our Approach"
-              className="rounded-lg shadow-md"
-            />
+            {isClient && (
+              <Image
+                src="https://news.dupontregistry.com/wp-content/uploads/2024/11/Hennessey-Venom-Main-1080x570.jpg"
+                alt="Our Approach"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-md"
+              />
+            )}
           </div>
         </div>
       ),

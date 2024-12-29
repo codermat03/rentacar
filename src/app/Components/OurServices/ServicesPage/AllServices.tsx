@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
+import Image from "next/image"; // Import Image from next/image
 
 const AllServices = () => {
   const services = [
@@ -74,9 +75,11 @@ const AllServices = () => {
             key={service.id}
             className="bg-white rounded-lg shadow-xl border-2 p-6 group relative overflow-hidden"
           >
-            <img
+            <Image
               src={service.image}
               alt={service.title}
+              width={130} // Set the width
+              height={130} // Set the height
               className="mb-6 w-[130px] rounded-full relative z-10"
             />
             <h3 className="text-xl font-semibold text-gray-800 mb-4 group-hover:text-white relative z-10">

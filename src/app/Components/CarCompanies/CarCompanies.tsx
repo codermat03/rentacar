@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 
 const CarCompanies = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
@@ -64,34 +65,46 @@ const CarCompanies = () => {
 
         {/* Companies Logos */}
         <div className="flex justify-center items-center gap-8 flex-wrap mt-10">
-          <img
+          <Image
             src="https://via.placeholder.com/120x40?text=Honda"
             alt="Honda"
+            width={120}
+            height={40}
             className="h-12"
           />
-          <img
+          <Image
             src="https://via.placeholder.com/120x40?text=Mercedes-Benz"
             alt="Mercedes-Benz"
+            width={120}
+            height={40}
             className="h-12"
           />
-          <img
+          <Image
             src="https://via.placeholder.com/120x40?text=Audi"
             alt="Audi"
+            width={120}
+            height={40}
             className="h-12"
           />
-          <img
+          <Image
             src="https://via.placeholder.com/120x40?text=Jaguar"
             alt="Jaguar"
+            width={120}
+            height={40}
             className="h-12"
           />
-          <img
+          <Image
             src="https://via.placeholder.com/120x40?text=Volkswagen"
             alt="Volkswagen"
+            width={120}
+            height={40}
             className="h-12"
           />
-          <img
+          <Image
             src="https://via.placeholder.com/120x40?text=Acura"
             alt="Acura"
+            width={120}
+            height={40}
             className="h-12"
           />
         </div>

@@ -1,5 +1,7 @@
+import Link from "next/link";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
+import Image from "next/image"; // Import Image from next/image
 
 const OurServices = () => {
   const services = [
@@ -58,9 +60,11 @@ const OurServices = () => {
               key={service.id}
               className="bg-white rounded-lg shadow-lg p-6 group relative overflow-hidden"
             >
-              <img
+              <Image
                 src={service.image}
                 alt={service.title}
+                width={130} // Set width for the image
+                height={130} // Set height for the image
                 className="mb-6 w-[130px] rounded-full relative z-10"
               />
               <h3 className="text-xl font-semibold text-gray-800 mb-4 group-hover:text-white relative z-10">
@@ -86,7 +90,7 @@ const OurServices = () => {
             rental plans.
           </p>
           <div className="flex justify-center mt-5">
-            <a
+            <Link
               href="/allservices"
               className="bg-orange-700 text-white w-[180px] md:w-[250px] md:text-2xl px-4 py-3 rounded-3xl hover:bg-orange-800 flex items-center gap-2 group"
             >
@@ -94,7 +98,7 @@ const OurServices = () => {
               <span className="transition-transform group-hover:duration-300 -rotate-[50deg] group-hover:rotate-0">
                 <FaArrowRight className="md:text-2xl" />
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

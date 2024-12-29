@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image"; // Import Image from next/image
 
 const StayInFormed = () => {
   return (
@@ -15,9 +16,11 @@ const StayInFormed = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         {/* Main Article */}
         <div className="relative group">
-          <img
+          <Image
             src="https://ajaycarrental.com/images/blog/book-car-for-Roadtrip.jpg"
             alt="Main Article"
+            width={600} // Set the width
+            height={400} // Set the height
             className="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-lg"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80 rounded-lg"></div>
@@ -55,10 +58,12 @@ const StayInFormed = () => {
               key={idx}
               className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 border-b pb-4"
             >
-              <img
+              <Image
                 className="w-full sm:w-28 h-28 object-cover rounded-md"
                 src={article.image}
                 alt={`Article ${idx + 1}`}
+                width={112} // Set the width
+                height={112} // Set the height
               />
               <div>
                 <p className="text-sm text-gray-500">August 5, 2024</p>

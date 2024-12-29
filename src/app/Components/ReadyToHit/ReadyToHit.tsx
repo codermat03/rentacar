@@ -1,9 +1,10 @@
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
+import Image from "next/image"; // Import Image from next/image
 
 const ReadyToHit = () => {
   return (
-    <div className=" text-white rounded-5xl py-16 px-8 max-w-7xl mx-auto mt-16">
+    <div className="text-white rounded-5xl py-16 px-8 max-w-7xl mx-auto mt-16">
       <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
         {/* Left Side */}
         <div>
@@ -17,9 +18,9 @@ const ReadyToHit = () => {
             reliability.
           </p>
           <div className="flex items-center gap-2">
-            <button className="flex items-center justify-center font-bold bg-orange-700 p-3 px-4 text-xl rounded-3xl transition-all duration-300  group">
+            <button className="flex items-center justify-center font-bold bg-orange-700 p-3 px-4 text-xl rounded-3xl transition-all duration-300 group">
               Contact Us
-              <div className=" text-white ml-2 flex items-center justify-center rounded-full transition-transform -rotate-[50deg] group-hover:rotate-[0deg] duration-300">
+              <div className="text-white ml-2 flex items-center justify-center rounded-full transition-transform -rotate-[50deg] group-hover:rotate-[0deg] duration-300">
                 <span className="text-xl">
                   <FaArrowRight />
                 </span>
@@ -30,9 +31,11 @@ const ReadyToHit = () => {
 
         {/* Right Side */}
         <div className="flex justify-center">
-          <img
-            src="https://askaricars.com/wp-content/uploads/2023/11/Askari-rent-a-car-service-1024x788.jpg"
+          <Image
+            src="https://askaricars.com/wp-content/uploads/2023/11/Askari-rent-a-car-service-1024x788.jpg" // Replace with the image URL
             alt="Car"
+            width={600} // Set the width
+            height={400} // Set the height
             className="w-full max-w-md rounded-2xl shadow-lg"
           />
         </div>

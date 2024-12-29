@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
+import Image from "next/image";
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -33,9 +34,11 @@ const FAQ = () => {
         {/* Image Section */}
         <div className="relative text-center">
           <div className="relative">
-            <img
+            <Image
               src="https://www.rentcar360.com/wp-content/uploads/2015/10/online-rental-cars-600.png"
               alt="Car Rental Illustration"
+              width={600}
+              height={600}
               className="rounded-[150px] sm:rounded-[200px] md:rounded-[300px] border-[10px] sm:border-[15px] md:border-[20px] border-white shadow-lg w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg"
             />
           </div>
