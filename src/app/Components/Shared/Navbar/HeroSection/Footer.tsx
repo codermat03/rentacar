@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { FaYoutube, FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -51,17 +52,17 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link href="/about" className="hover:underline">
+              <Link href="/aboutus" className="hover:underline">
                 About Us
               </Link>
             </li>
             <li>
-              <Link href="/car-types" className="hover:underline">
+              <Link href="/allcars" className="hover:underline">
                 Car Types
               </Link>
             </li>
             <li>
-              <Link href="/services" className="hover:underline">
+              <Link href="/allservices" className="hover:underline">
                 Services
               </Link>
             </li>
@@ -92,21 +93,33 @@ const Footer = () => {
         {/* Copyright */}
         <p>© 2024 Rent A Car. All rights reserved.</p>
 
+        {/* CoderMat Credit */}
+        <p className="mt-4 sm:mt-0">
+          Built with by{" "}
+          <Link
+            href="https://codermat.com"
+            className="text-orange-500 hover:underline"
+            target="_blank"
+          >
+            CoderMat
+          </Link>
+        </p>
+
         {/* Social Media Icons */}
         <div className="flex space-x-4 mt-4 sm:mt-0">
           {[
-            { icon: "fab fa-youtube", label: "YouTube" },
-            { icon: "fab fa-facebook", label: "Facebook" },
-            { icon: "fab fa-twitter", label: "Twitter" },
-            { icon: "fab fa-linkedin", label: "LinkedIn" },
+            { icon: <FaYoutube />, label: "YouTube", href: "#" },
+            { icon: <FaFacebook />, label: "Facebook", href: "#" },
+            { icon: <FaTwitter />, label: "Twitter", href: "#" },
+            { icon: <FaLinkedin />, label: "LinkedIn", href: "#" },
           ].map((social, idx) => (
             <Link
               key={idx}
-              href="#"
+              href={social.href}
               className="bg-gray-700 p-2 rounded-full hover:bg-orange-500 transition"
               aria-label={social.label}
             >
-              <i className={`${social.icon} text-white`}></i>
+              <div className="text-white text-lg">{social.icon}</div>
             </Link>
           ))}
         </div>

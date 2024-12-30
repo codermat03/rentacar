@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image"; // Importing the Image component from Next.js
 import { FaArrowRight } from "react-icons/fa";
+import Link from "next/link";
 
 const TrustedPartnerSection = () => {
   return (
@@ -60,14 +61,16 @@ const TrustedPartnerSection = () => {
               </li>
             </ul>
             <div className="flex justify-center sm:justify-start mt-5">
-              <button className="flex items-center justify-center bg-orange-700 text-white font-bold text-sm sm:text-base px-4 sm:px-5 py-2 rounded-full transition-all duration-300 hover:bg-orange-900 group">
-                Contact Us
-                <div className="text-white ml-2 flex items-center justify-center rounded-full transition-transform -rotate-[50deg] group-hover:rotate-[0deg] duration-300">
-                  <span className="text-lg sm:text-xl">
-                    <FaArrowRight />
-                  </span>
-                </div>
-              </button>
+              <Link href="/contact">
+                <button className="flex items-center justify-center bg-orange-700 text-white font-bold text-sm sm:text-base px-4 sm:px-5 py-2 rounded-full transition-all duration-300 hover:bg-orange-900 group">
+                  Contact Us
+                  <div className="text-white ml-2 flex items-center justify-center rounded-full transition-transform -rotate-[50deg] group-hover:rotate-[0deg] duration-300">
+                    <span className="text-lg sm:text-xl">
+                      <FaArrowRight />
+                    </span>
+                  </div>
+                </button>
+              </Link>
             </div>
           </div>
         </div>

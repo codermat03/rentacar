@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import Image from "next/image"; // Import Image component
+import Link from "next/link";
 
 const cars = [
   {
@@ -91,9 +92,9 @@ const CarSlider = () => {
               <Image
                 src={car.image}
                 alt={car.name}
-                width={340} // Width of the image
-                height={220} // Height of the image
-                className="rounded-t-lg"
+                width={500} // Width of the image
+                height={500} // Height of the image
+                className="w-full h-[200px] object-cover rounded-t-lg"
               />
               <div className="p-4 group">
                 <span className="text-sm bg-gray-200 rounded-full px-3 py-1 inline-block mb-2">
@@ -110,9 +111,18 @@ const CarSlider = () => {
                   ${car.price}
                   <span className="text-sm font-normal">/Per Day</span>
                 </div>
-                <button className="bg-orange-700 rounded-full p-2 mt-5 relative z-10 -rotate-[50deg] group-hover:rotate-0 group-hover:bg-black duration-300">
-                  <FaArrowRight className="text-3xl text-white" />
-                </button>
+                <div className="flex justify-center sm:justify-start mt-5">
+                  <Link href="\contact">
+                    <button className="flex items-center justify-center bg-orange-700 text-white font-bold text-sm sm:text-base px-4 sm:px-5 py-2 rounded-full transition-all duration-300 hover:bg-orange-900 group">
+                      Book Now
+                      <div className="text-white ml-2 flex items-center justify-center rounded-full transition-transform -rotate-[50deg] group-hover:rotate-[0deg] duration-300">
+                        <span className="text-lg sm:text-xl">
+                          <FaArrowRight />
+                        </span>
+                      </div>
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           ))}

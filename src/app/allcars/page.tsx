@@ -2,6 +2,7 @@ import React from "react";
 import CarsCover from "../Components/Cars/CarsPage/CarsCover";
 import { FaArrowRight } from "react-icons/fa";
 import Image from "next/image"; // Importing next/image for optimized images
+import Link from "next/link";
 
 const AllCars = () => {
   const cars = [
@@ -77,10 +78,9 @@ const AllCars = () => {
               <Image
                 src={car.image}
                 alt={car.name}
-                className="w-full h-64 object-cover rounded-t-lg"
                 width={500} // Add width for better optimization
-                height={400} // Add height for better optimization
-                layout="responsive" // Helps with responsive image rendering
+                height={500} // Add height for better optimization
+                className="w-[400px] h-[250px] object-cover rounded-t-lg"
               />
               <div className="p-4">
                 <span className="text-sm bg-gray-200 rounded-full px-3 py-1 inline-block mb-2">
@@ -98,14 +98,16 @@ const AllCars = () => {
                   <span className="text-sm font-normal">/Per Day</span>
                 </div>
                 <div className="flex justify-center sm:justify-start mt-5">
-                  <button className="flex items-center justify-center bg-orange-700 text-white font-bold text-sm sm:text-base px-4 sm:px-5 py-2 rounded-full transition-all duration-300 hover:bg-orange-900 group">
-                    Book Now
-                    <div className="text-white ml-2 flex items-center justify-center rounded-full transition-transform -rotate-[50deg] group-hover:rotate-[0deg] duration-300">
-                      <span className="text-lg sm:text-xl">
-                        <FaArrowRight />
-                      </span>
-                    </div>
-                  </button>
+                  <Link href="/contact">
+                    <button className="flex items-center justify-center bg-orange-700 text-white font-bold text-sm sm:text-base px-4 sm:px-5 py-2 rounded-full transition-all duration-300 hover:bg-orange-900 group">
+                      Book Now
+                      <div className="text-white ml-2 flex items-center justify-center rounded-full transition-transform -rotate-[50deg] group-hover:rotate-[0deg] duration-300">
+                        <span className="text-lg sm:text-xl">
+                          <FaArrowRight />
+                        </span>
+                      </div>
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

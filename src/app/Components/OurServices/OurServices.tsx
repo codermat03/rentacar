@@ -73,9 +73,12 @@ const OurServices = () => {
               <p className="text-gray-600 group-hover:text-white relative z-10">
                 {service.description}
               </p>
-              <button className="bg-orange-700 rounded-full p-2 mt-5 relative z-10 -rotate-[50deg] group-hover:rotate-0 group-hover:bg-black duration-300">
-                <FaArrowRight className="text-3xl text-white" />
-              </button>
+              <Link href={`/allservices/${service.id}`}>
+                {" "}
+                <button className="bg-orange-700 rounded-full p-2 mt-5 relative z-10 -rotate-[50deg] group-hover:rotate-0 group-hover:bg-black duration-300">
+                  <FaArrowRight className="text-3xl text-white" />
+                </button>
+              </Link>
               <span
                 className={`absolute bottom-0 left-0 w-full h-full ${service.bgColor} transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out`}
               ></span>
@@ -92,7 +95,7 @@ const OurServices = () => {
           <div className="flex justify-center mt-5">
             <Link
               href="/allservices"
-              className="bg-orange-700 text-white w-[180px] md:w-[250px] md:text-2xl px-4 py-3 rounded-3xl hover:bg-orange-800 flex items-center gap-2 group"
+              className="bg-orange-700 text-white md:text-xl px-5 py-3 rounded-3xl hover:bg-orange-800 flex items-center gap-2 group"
             >
               View All Services
               <span className="transition-transform group-hover:duration-300 -rotate-[50deg] group-hover:rotate-0">

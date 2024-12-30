@@ -1,6 +1,7 @@
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import Image from "next/image"; // Import Image from next/image
+import Link from "next/link";
 
 const ReadyToHit = () => {
   return (
@@ -18,14 +19,17 @@ const ReadyToHit = () => {
             reliability.
           </p>
           <div className="flex items-center gap-2">
-            <button className="flex items-center justify-center font-bold bg-orange-700 p-3 px-4 text-xl rounded-3xl transition-all duration-300 group">
-              Contact Us
-              <div className="text-white ml-2 flex items-center justify-center rounded-full transition-transform -rotate-[50deg] group-hover:rotate-[0deg] duration-300">
-                <span className="text-xl">
-                  <FaArrowRight />
-                </span>
-              </div>
-            </button>
+            <Link href={`/contact`}>
+              {" "}
+              <button className="flex items-center justify-center font-bold bg-orange-700 p-3 px-4 text-xl rounded-3xl transition-all duration-300 group">
+                Contact Us
+                <div className="text-white ml-2 flex items-center justify-center rounded-full transition-transform -rotate-[50deg] group-hover:rotate-[0deg] duration-300">
+                  <span className="text-xl">
+                    <FaArrowRight />
+                  </span>
+                </div>
+              </button>
+            </Link>
           </div>
         </div>
 
