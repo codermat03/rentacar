@@ -198,29 +198,32 @@ export default function Navbar() {
           Services
         </Link>
         <Link
-          href="#cars"
+          href="/allcars"
           className="block px-6 py-3 text-gray-800 hover:text-orange-600 font-bold"
           onClick={closeMenu} // Close the menu when link is clicked
         >
           Cars
         </Link>
         <Link
-          href="#about"
+          href="/aboutus"
           className="block px-6 py-3 text-gray-800 hover:text-orange-600 font-bold"
           onClick={closeMenu} // Close the menu when link is clicked
         >
           About
         </Link>
         <Link
-          href="#contact"
+          href="/contact"
           className="block px-6 py-3 text-gray-800 hover:text-orange-600 font-bold"
           onClick={closeMenu} // Close the menu when link is clicked
         >
           Contact
         </Link>
-        <button className="block w-full px-6 py-3 text-white bg-orange-700 hover:bg-orange-600 font-bold rounded-3xl">
-          Book A Rent
-        </button>
+        <Link href={`contact`}>
+          {" "}
+          <button className="block w-full px-6 py-3 text-white bg-orange-700 hover:bg-orange-600 font-bold rounded-3xl">
+            Book A Rent
+          </button>
+        </Link>
       </div>
     </nav>
   );
