@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 
@@ -27,17 +28,22 @@ const HeroSection = () => {
           </p>
         </div>
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 py-10 sm:py-16 w-full justify-center">
-          <button className="bg-orange-700 font-bold p-3 sm:p-5 px-4 sm:px-5 text-lg sm:text-2xl rounded-3xl w-full sm:w-auto">
-            Book A Rental
-          </button>
-          <button className="flex items-center justify-center font-bold bg-white text-black p-3 sm:p-5 px-4 sm:px-5 text-lg sm:text-2xl rounded-3xl transition-all duration-300 group w-full sm:w-auto">
-            Learn More
-            <div className="text-white ml-2 flex items-center justify-center rounded-full transition-transform -rotate-[50deg] group-hover:rotate-[0deg] duration-300">
-              <span className="text-sm sm:text-xl text-black">
-                <FaArrowRight />
-              </span>
-            </div>
-          </button>
+          <Link href="/contact">
+            {" "}
+            <button className="bg-orange-700 font-bold p-3 sm:p-5 px-4 sm:px-5 text-lg sm:text-2xl rounded-3xl w-full sm:w-auto">
+              Book A Rental
+            </button>
+          </Link>
+          <Link href="/aboutus">
+            <button className="flex items-center justify-center font-bold bg-white text-black p-3 sm:p-5 px-4 sm:px-5 text-lg sm:text-2xl rounded-3xl transition-all duration-300 group w-full sm:w-auto">
+              Learn More
+              <div className="text-white ml-2 flex items-center justify-center rounded-full transition-transform -rotate-[50deg] group-hover:rotate-[0deg] duration-300">
+                <span className="text-sm sm:text-xl text-black">
+                  <FaArrowRight />
+                </span>
+              </div>
+            </button>
+          </Link>
         </div>
 
         {/* Form Section */}

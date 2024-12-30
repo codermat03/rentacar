@@ -1,8 +1,11 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
+
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+
+import { useRouter } from "next/navigation";
 import { FaArrowRight } from "react-icons/fa";
 import { MdMessage } from "react-icons/md";
 
@@ -15,9 +18,7 @@ interface Service {
 }
 
 interface SingleServiceProps {
-  params: Promise<{
-    id: string;
-  }>;
+  params: Promise<{ id: string }>;
 }
 
 const SingleService: React.FC<SingleServiceProps> = ({
@@ -25,6 +26,8 @@ const SingleService: React.FC<SingleServiceProps> = ({
 }) => {
   const [params, setParams] = useState<{ id: string } | null>(null);
   const [service, setService] = useState<Service | undefined>(undefined);
+
+  const router = useRouter(); // Use the router instance
 
   const services: Service[] = [
     {
@@ -99,8 +102,12 @@ const SingleService: React.FC<SingleServiceProps> = ({
 
   useEffect(() => {
     const fetchParams = async () => {
-      const resolvedParams = await paramsPromise; // Resolve params Promise
-      setParams(resolvedParams);
+      try {
+        const resolvedParams = await paramsPromise;
+        setParams(resolvedParams);
+      } catch (error) {
+        console.error("Failed to resolve params:", error);
+      }
     };
     fetchParams();
   }, [paramsPromise]);
@@ -111,7 +118,7 @@ const SingleService: React.FC<SingleServiceProps> = ({
       const foundService = services.find((service) => service.id === serviceId);
       setService(foundService);
     }
-  }, [params, services]);
+  }, [params]);
 
   if (!service) {
     return (
@@ -162,24 +169,6 @@ const SingleService: React.FC<SingleServiceProps> = ({
                     {service.title}
                   </Link>
                 ))}
-              </div>
-            </div>
-
-            <div className="pt-20">
-              <MdMessage className="text-7xl text-black" />
-              <h1 className="text-5xl text-black font-bold">Need Help?</h1>
-              <p className="text-black">
-                We strive to provide exceptional customer service and support.
-              </p>
-              <div className="flex items-center gap-2">
-                <button className="mt-5 flex items-center justify-center font-bold bg-orange-700 p-3 px-4 text-xl rounded-3xl transition-all duration-300 group">
-                  Contact Us
-                  <div className="text-white ml-2 flex items-center justify-center rounded-full transition-transform -rotate-[50deg] group-hover:rotate-[0deg] duration-300">
-                    <span className="text-xl">
-                      <FaArrowRight />
-                    </span>
-                  </div>
-                </button>
               </div>
             </div>
           </aside>

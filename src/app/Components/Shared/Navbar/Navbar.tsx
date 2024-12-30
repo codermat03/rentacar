@@ -131,12 +131,14 @@ export default function Navbar() {
 
           {/* Book Now Button */}
           <div className="hidden md:flex">
-            <button className="flex items-center justify-center font-bold bg-orange-700 p-3 px-4 rounded-3xl transition-all duration-300 group">
-              Book A Rent
-              <div className="text-white ml-2 flex items-center justify-center rounded-full transition-transform duration-300 -rotate-[50deg] group-hover:rotate-0">
-                <FaArrowRight />
-              </div>
-            </button>
+            <Link href="/contact">
+              <button className="flex items-center justify-center font-bold bg-orange-700 p-3 px-4 rounded-3xl transition-all duration-300 group">
+                Book A Rent
+                <div className="text-white ml-2 flex items-center justify-center rounded-full transition-transform duration-300 -rotate-[50deg] group-hover:rotate-0">
+                  <FaArrowRight />
+                </div>
+              </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
